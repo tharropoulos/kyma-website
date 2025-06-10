@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Circle, Copy, Check } from "lucide-react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { Button } from "@/components/ui/button";
@@ -58,19 +59,24 @@ function Hero() {
   return (
     <div className="relative z-10 w-full mx-auto px-4 md:px-6">
       <div className="mx-auto text-center">
-        <motion.a
+        <motion.div
           custom={0}
           variants={fadeUpVariants}
           initial="hidden"
           animate={!isLoading ? "visible" : "hidden"}
-          href="https://github.com/museslabs/kyma"
-          className={cn(
-            "text-xs md:text-sm inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/90 border border-white/[0.08] lg:mb-12 cursor-pointer transition-colors duration-500 hover:bg-sky-950/50"
-          )}
+          className="flex items-center justify-center gap-2"
         >
-          <Circle className="h-2 w-2 fill-sky-500/80" />
-          {latestVersion && <span className="text-white/60 tracking-wide font-mono">{latestVersion}</span>}
-        </motion.a>
+          <a
+            href="https://github.com/museslabs/kyma/releases/latest"
+            className="text-xs md:text-sm inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/90 border border-white/[0.08] lg:mb-12 cursor-pointer transition-colors duration-500 hover:bg-sky-950/50"
+          >
+            <Circle className="h-2 w-2 fill-sky-500/80" />
+            {latestVersion && <span className="text-white/60 tracking-wide font-mono">{latestVersion}</span>}
+          </a>
+          <a href="https://github.com/museslabs/kyma">
+            <GitHubLogoIcon className="h-7 w-7 text-white/60 text-xs md:text-sm   p-1 lg:mb-12 cursor-pointer transition-all duration-500 hover:bg-sky-950/50 hover:rounded-full" />
+          </a>
+        </motion.div>
         <motion.div
           custom={1}
           variants={fadeUpVariants}
